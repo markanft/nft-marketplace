@@ -8,15 +8,28 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "axios": "^0.24.0",
+    "ipfs-http-client": "^54.0.1",
     "next": "12.0.4",
     "react": "17.0.2",
-    "react-dom": "17.0.2"
+    "react-dom": "17.0.2",
+    "web3modal": "^1.9.4"
   },
   "devDependencies": {
+    "@nomiclabs/hardhat-ethers": "^2.0.2",
+    "@nomiclabs/hardhat-waffle": "^2.0.1",
+    "@openzeppelin/contracts": "^4.3.3",
     "@types/node": "16.11.9",
     "@types/react": "17.0.36",
+    "autoprefixer": "^10.4.0",
+    "chai": "^4.3.4",
     "eslint": "7.32.0",
     "eslint-config-next": "12.0.4",
+    "ethereum-waffle": "^3.4.0",
+    "ethers": "^5.5.1",
+    "hardhat": "^2.6.8",
+    "postcss": "^8.3.11",
+    "tailwindcss": "^2.2.19",
     "typescript": "4.5.2"
   }
 }
