@@ -1,17 +1,17 @@
-import { NFT } from "./../types/NFT";
-import { NFTMarket } from "./../types/NFTMarket";
+import { NFT } from "@contractTypes/NFT";
+import { NFTMarket } from "@contractTypes/NFTMarket";
 import { expect } from "chai";
 import { ethers } from "hardhat";
 
 describe("NFTMarket", function () {
   it("Should create and execut market sales", async function () {
     const Market = await ethers.getContractFactory("NFTMarket");
-    const market = (await Market.deploy()) as NFTMarket;
+    const market = (await Market.deploy()) as unknown as NFTMarket;
     await market.deployed();
     const marketAddress = market.address;
 
     const NFT = await ethers.getContractFactory("NFT");
-    const nft = (await NFT.deploy(marketAddress)) as NFT;
+    const nft = (await NFT.deploy(marketAddress)) as unknown as NFT;
     await nft.deployed();
     const nftAdress = nft.address;
 
@@ -59,7 +59,7 @@ describe("NFTMarket", function () {
 
     expect(
       market.createMarketItem(nftAdress, 1, auctionPrice, { value: 0 })
-    ).to.be.revertedWith("Price must be equal to lis price");
+    ).to.be.revertedWith("Price must be equal to list price");
 
     expect(
       market.connect(buyerAddress).createMarketSale(nftAdress, 1, { value: 0 })
